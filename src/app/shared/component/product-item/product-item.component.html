@@ -1,0 +1,9 @@
+<div ngClass="card-product" [id]="product.id">
+    <a routerLink="/detail-product/">
+      <img ngClass="w-50 mx-auto" [src]="product.image" alt="Card image cap">
+      <div ngClass="card-body">
+         <p>{{ product.title}}</p>
+         <h5 ngClass="text-pink text-start">${{ product.price }}</h5>
+      </div>
+    </a>
+</div>

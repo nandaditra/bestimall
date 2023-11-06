@@ -1,0 +1,37 @@
+<header>
+    <nav ngClass="navbar navbar-expand-lg container">
+        <a ngClass="navbar-brand" href="#">
+            <img 
+              [src]="logo" 
+              alt="logo-image.png"
+              ngClass="w-25">
+        </a>
+        <button ngClass="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span ngClass="navbar-toggler-icon"></span>
+        </button>
+        <div ngClass="collapse navbar-collapse" id="navbarNav">
+          <ul ngClass="navbar-nav">
+            <li ngClass="nav-item">
+              <a ngClass="nav-link" routerLink="/category/electronics">Electronics</a>
+            </li>
+            <li ngClass="nav-item">
+              <a ngClass="nav-link" routerLink="/category/jewelery">Jewelery</a>
+            </li>
+            <li ngClass="nav-item">
+              <a ngClass="nav-link" routerLink="/category/men's clothing">Men's</a>
+            </li>
+            <li ngClass="nav-item">
+              <a ngClass="nav-link" routerLink="/category/women's clothing">Women's </a>
+            </li>
+          </ul>
+          <div ngClass="d-flex">
+           <button ngClass="btn bg-white text-pink mr-2 rounded">
+                Sign In
+           </button>
+           <button ngClass="btn bg-pink text-white rounded">
+                Sign Out
+           </button>
+        </div>
+        </div>
+    </nav>
+  </header>

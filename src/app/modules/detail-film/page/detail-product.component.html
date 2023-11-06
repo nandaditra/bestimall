@@ -1,0 +1,22 @@
+<div ngClass="my-5">
+    <div ngClass="row">
+    <div ngClass="col-4">
+        <img 
+            ngClass="w-100 mx-auto"
+            [src]="detailProduct.image">
+    </div>
+    <div ngClass="col-8">
+        <div ngClass="my-4">
+            <h1>{{ detailProduct.title }}</h1>
+            <p ngClass="m-0">Price : ${{ detailProduct.price }}</p>
+            <span ngClass="badge badge-success">{{ detailProduct.category }}</span>
+            <p ngClass="pt-4">{{ detailProduct.description }}</p>
+
+            <div ngClass="d-flex">
+                <button ngClass="px-4 btn btn-danger mr-4">Buy</button>
+                <button ngClass="px-4 btn btn-success">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
