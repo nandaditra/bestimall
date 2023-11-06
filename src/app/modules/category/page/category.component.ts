@@ -23,7 +23,7 @@ export class CategoryComponent {
     }
 
     getListCategory() {
-      const listCategory = String(this.route.snapshot.paramMap.get('categoryId'));
+      let listCategory = String(this.route.snapshot.paramMap.get('categoryId'));
       return this.productService.getCategoryProductFromApi(listCategory)
       .subscribe((product: Product[])=> {
          this.listCategoryProduct = product;

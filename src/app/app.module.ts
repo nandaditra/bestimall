@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DetailProductModule } from './modules/detail-film/detail-product.module';
 import { CategoryModule } from './modules/category/category.module';
 import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './modules/auth/auth.module';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { SharedModule } from './shared/shared.module';
     HomeModule,
     DetailProductModule,
     SharedModule,
-    CategoryModule
+    CategoryModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
