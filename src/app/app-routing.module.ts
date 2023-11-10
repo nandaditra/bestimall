@@ -4,9 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/page/home.component';
 import { ContentlayoutComponent } from './layout/contentlayout/contentlayout.component';
 import { DetailProductComponent } from './modules/detail-film/page/detail-product.component';
-import { CategoryComponent } from './modules/category/page/category.component';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { SigninComponent } from './modules/auth/signin/signin.component';
+import { ElectronicsComponent } from './modules/electronics/page/electronics.component';
+import { JeweleryComponent } from './modules/jewelery/page/jewelery.component';
+import { MensComponent } from './modules/mens/page/mens.component';
+import { WomensComponent } from './modules/womens/page/womens.component';
 
 const routes: Routes = [
   { 
@@ -28,10 +31,31 @@ const routes: Routes = [
         component: DetailProductComponent
       },
       {
-        path: 'category/:categoryId',
-        title: 'Bestimall | Category',
-        component: CategoryComponent,
-      }
+        path:'category',
+        children: [
+           {
+             path:'electronics',
+             title: 'Bestimall | Electronic',
+             component : ElectronicsComponent
+           },
+           {
+             path:'jewelery',
+             title: 'Bestimall | Jewelery',
+             component : JeweleryComponent,
+          },
+          {
+             path:"men's clothing",
+             title: 'Bestimall | Mens',
+             component: MensComponent
+            
+          },
+          {
+             path:"women's clothing",
+             title: 'Bestimall | Womens',
+             component: WomensComponent,
+          }
+        ]
+     },
      ]
   },
   {
