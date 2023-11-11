@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { delay } from 'rxjs';
 import { Product } from 'src/app/data/schema/product';
 import { ProductService } from 'src/app/data/service/product/product.service';
 
@@ -9,6 +10,7 @@ import { ProductService } from 'src/app/data/service/product/product.service';
   styleUrls: ['./detail-product.component.css']
 })
 export class DetailProductComponent {
+  isLoading:boolean= false
   detailProduct: Product = {
    id: 0,
    title: '',
@@ -33,10 +35,13 @@ export class DetailProductComponent {
   }
 
   getProductById(){
+     this.isLoading = true;
      const productId = Number(this.route.snapshot.paramMap.get('productId'));
      return this.productService.getDetailProductFromApi(productId)
+       .pipe(delay(2000))
        .subscribe((product:Product)=> { 
-          this.detailProduct = product
+          this.isLoading = false;
+          this.detailProduct = product;
        })
   }
 }
