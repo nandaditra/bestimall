@@ -17,6 +17,7 @@ import { WomensModule } from './modules/womens/womens.module';
 import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFireAuthModule} from '@angular/fire/compat/auth'
 import { FirestoreModule } from '@angular/fire/firestore';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { FirestoreModule } from '@angular/fire/firestore';
     }),
     AngularFireAuthModule,
     FirestoreModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
