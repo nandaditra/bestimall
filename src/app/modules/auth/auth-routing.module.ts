@@ -9,7 +9,16 @@ export const routes:Routes= [
         path:'auth',
         component:ContentlayoutComponent,
         children: [
-           
+            {
+                path:'login',
+                title: 'Bestimall | Login',
+                component: LoginComponent
+            },
+            { 
+                path:'signin',
+                title: 'Bestimall | Sign In',
+                component: SigninComponent
+            }
         ]
     }
 ]

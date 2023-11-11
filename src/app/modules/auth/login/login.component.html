@@ -1,14 +1,13 @@
 <div class="mx-auto my-5">
     <h1 class="text-center">Log In</h1>
-    <form class="col-5 mx-auto">
+    <form [formGroup]="loginForm" class="col-5 mx-auto" (ngSubmit)="login()">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <input type="password" class="form-control" formControlName="password" placeholder="Password">
         </div>
         <button type="submit" class="btn bg-pink  w-100">Login</button>
       </form>
