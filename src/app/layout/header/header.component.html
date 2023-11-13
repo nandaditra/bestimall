@@ -24,18 +24,26 @@
               <a ngClass="nav-link" routerLink="/category/women's clothing">Women's </a>
             </li>
           </ul>
-          <div ngClass="d-flex">
-           <button ngClass="btn bg-white text-pink mr-2 rounded">
-               <a routerLink="/auth/login">
-                 Login
-              </a>
-           </button>
-           <button ngClass="btn bg-pink text-white rounded">
-               <a routerLink="/auth/signin">
-                 Sign In
-               </a>
-           </button>
-        </div>
+          <li *ngIf="authenticated" ngClass="d-flex">
+              <button ngClass="btn bg-white text-pink mr-2 rounded">
+                  Cart
+              </button>
+              <button ngClass="btn bg-pink text-white rounded" (click)="logOut()">
+                  Logout
+              </button>
+          </li>
+          <li *ngIf="!authenticated" ngClass="d-flex" >
+              <button ngClass="btn bg-white text-pink mr-2 rounded">
+                  <a routerLink="/auth/login">
+                    Login
+                  </a>
+              </button>
+              <button ngClass="btn bg-pink text-white rounded">
+                  <a routerLink="/auth/signin">
+                    Sign In
+                  </a>
+              </button>
+          </li>
         </div>
     </nav>
   </header>
