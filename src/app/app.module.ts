@@ -18,12 +18,14 @@ import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFireAuthModule} from '@angular/fire/compat/auth'
 import { FirestoreModule } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CartComponent } from './modules/cart/page/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ContentlayoutComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
