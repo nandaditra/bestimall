@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { delay } from 'rxjs';
+import { delay, filter } from 'rxjs';
 import { Product } from 'src/app/data/schema/product';
 import { ProductService } from 'src/app/data/service/product/product.service';
 
@@ -9,8 +9,9 @@ import { ProductService } from 'src/app/data/service/product/product.service';
   templateUrl: './detail-product.component.html',
   styleUrls: ['./detail-product.component.css']
 })
-export class DetailProductComponent {
-  isLoading:boolean= false
+export class DetailProductComponent implements OnInit{
+  isLoading:boolean= false;
+  status:boolean=false;
   detailProduct: Product = {
    id: 0,
    title: '',
@@ -43,5 +44,24 @@ export class DetailProductComponent {
           this.isLoading = false;
           this.detailProduct = product;
        })
+  }
+
+  addProduct(product: Product){
+     const productDb = this.productService.getAllProducts()
+        .subscribe(res=> {
+          res.filter((data) => parseInt(data.payload.doc.id) === product.id)
+     })
+
+     if(productDb) {
+        this.status = true;           
+        return 
+     }
+
+     return this.productService.addProduct(this.detailProduct)
+  }
+
+  deleteProduct(product: Product) {
+     this.status = false;
+     return this.productService.deleteProduct(product);
   }
 }
