@@ -10,6 +10,8 @@ import { ElectronicsComponent } from './modules/electronics/page/electronics.com
 import { JeweleryComponent } from './modules/jewelery/page/jewelery.component';
 import { MensComponent } from './modules/mens/page/mens.component';
 import { WomensComponent } from './modules/womens/page/womens.component';
+import { CartComponent } from './modules/cart/page/cart.component';
+import { authguardGuard } from './core/guard/authguard.guard';
 
 const routes: Routes = [
   { 
@@ -54,8 +56,14 @@ const routes: Routes = [
              title: 'Bestimall | Womens',
              component: WomensComponent,
           }
-        ]
-     },
+        ],
+       },
+       {
+        path:"cart",
+        title: "Bestimall | Cart",
+        component: CartComponent,
+        canActivate: [authguardGuard]
+       }
      ]
   },
   {
