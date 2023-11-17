@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Product } from '../../schema/product';
 
 @Injectable({
@@ -11,8 +10,8 @@ export class ProductService {
 
   constructor(
     private apiService: ApiService,
-    private afs: AngularFirestore,
-    private fireStoreage: AngularFireStorage) { }
+    private afs: AngularFirestore
+    ) { }
 
   getListProductFromApi() {
     const listProduct = this.apiService.getApiListProducts();
