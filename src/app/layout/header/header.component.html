@@ -25,21 +25,23 @@
             </li>
           </ul>
           <li *ngIf="authenticated" ngClass="d-flex">
-              <button ngClass="btn bg-white text-pink mr-2 rounded">
+              <a routerLink="/cart">
+                 <button ngClass="btn bg-white text-pink mr-2 rounded">
                   Cart
-              </button>
+                </button>
+              </a>
               <button ngClass="btn bg-pink text-white rounded" (click)="logOut()">
                   Logout
               </button>
           </li>
           <li *ngIf="!authenticated" ngClass="d-flex" >
               <button ngClass="btn bg-white text-pink mr-2 rounded">
-                  <a routerLink="/auth/login">
+                  <a ngClass="nav-link" routerLink="/auth/login">
                     Login
                   </a>
               </button>
               <button ngClass="btn bg-pink text-white rounded">
-                  <a routerLink="/auth/signin">
+                  <a ngClass="text-white" routerLink="/auth/signin">
                     Sign In
                   </a>
               </button>
