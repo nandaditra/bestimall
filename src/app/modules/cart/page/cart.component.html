@@ -1,8 +1,6 @@
 <div ngClass="row">
     <div ngClass="col-sm-12 col-md-8">
-        <div *ngIf="loading" ngClass="mx-auto">
-            <app-spinner />
-        </div>
+        <app-spinner ngClass="text-center mx-auto" [loading]="loading" />
         <div *ngIf="status">
            <app-empty-item />
         </div>

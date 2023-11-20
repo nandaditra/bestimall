@@ -1,7 +1,5 @@
 <div ngClass="row my-5">
-    <div ngClass="mx-auto" *ngIf="loading">
-       <app-spinner />
-    </div>
+    <app-spinner ngClass="text-center mx-auto" [loading]="loading" />
     <div ngClass="col-sm-6 col-md-3 my-2" *ngFor="let product of listCategoryProduct">
        <app-product-item [product]="product"></app-product-item>
     </div>     
