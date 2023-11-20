@@ -8,8 +8,8 @@ import { ProductService } from 'src/app/data/service/product/product.service';
   styleUrls: ['./mens.component.css']
 })
 export class MensComponent {
-  listCategoryProduct: Product[] = []  
-    query: String = ""
+    listCategoryProduct: Product[] = []  
+    loading:boolean = false;
 
     constructor(
        private productService: ProductService,
@@ -22,9 +22,11 @@ export class MensComponent {
     }
     
     getListCategory() {
+      this.loading = true
       return this.productService.getCategoryProductFromApi("men's clothing")
       .subscribe((product: Product[])=> {
          this.listCategoryProduct = product;
+         this.loading = false;
       })
     }
 }
