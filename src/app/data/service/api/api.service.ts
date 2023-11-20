@@ -12,7 +12,7 @@ export class ApiService {
   constructor(private http:HttpClient) { }
 
   getApiListProducts(): Observable<Product[]>{
-     return this.http.get<Product[]>(this.data_api)
+     return this.http.get<Product[]>(this.data_api);;
   }
 
   getApiDetailProduct(productId: number): Observable<Product>{
