@@ -14,7 +14,6 @@
                 <p ngClass="pt-4">{{ detailProduct.description }}</p>
 
                 <div ngClass="d-flex">
-                    <button ngClass="px-4 btn btn-danger mr-4">Buy</button>
                     <button ngClass="px-4 btn btn-success" (click)="addProduct(detailProduct)" [disabled]="status">Add to Cart</button>
                 </div>
             </div>
