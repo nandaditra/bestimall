@@ -1,9 +1,9 @@
 <div ngClass="card-product" [id]="product.id">
-    <a routerLink="/detail-product/{{product.id}}">
+    <a ngClass="product-link" routerLink="/detail-product/{{product.id}}">
       <img ngClass="w-50 mx-auto" [src]="product.image" alt="Card image cap">
       <div ngClass="card-body">
-         <p>{{ product.title}}</p>
-         <h5 ngClass="text-pink text-start">${{ product.price }}</h5>
+         <p>{{ product.title.substring(0, 35)}}</p>
+         <h5 ngClass="text-pink product-price">${{ product.price }}</h5>
       </div>
     </a>
 </div>

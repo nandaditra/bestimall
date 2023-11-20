@@ -1,5 +1,7 @@
 .card-product {
     text-align:center;
+    border-radius:10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card-product img { 
@@ -9,3 +11,25 @@
     text-align:center;
 } 
 
+.product-price {
+    font-size:16px;
+    font-weight:bold;
+}
+
+.product-link {
+    text-decoration:none;
+}
+
+.product-link p {
+    font-size:16px;
+    color:black;
+}
+
+@media screen and (max-width: 480px) {    
+    .card-product img { 
+        margin: 10px auto 10px auto ;
+        width: auto;
+        height: auto;
+        text-align:center;
+    } 
+}
