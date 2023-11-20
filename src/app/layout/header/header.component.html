@@ -1,16 +1,16 @@
 <header>
     <nav ngClass="navbar navbar-expand-lg container">
-        <a ngClass="navbar-brand" href="#">
-            <img 
-              [src]="logo" 
-              alt="logo-image.png"
-              ngClass="w-25">
-        </a>
-        <button ngClass="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span ngClass="navbar-toggler-icon"></span>
+        <img 
+           [src]="logo" 
+           alt="logo-image.png"
+           ngClass="w-25">
+        <button ngClass="navbar-toggler pink" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span ngClass="material-icons-outlined pink">
+               menu
+            </span>
         </button>
         <div ngClass="collapse navbar-collapse" id="navbarNav">
-          <ul ngClass="navbar-nav">
+          <ul ngClass="navbar-nav ml-auto">
             <li ngClass="nav-item">
               <a ngClass="nav-link" routerLink="/category/electronics">Electronics</a>
             </li>

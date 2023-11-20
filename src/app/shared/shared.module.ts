@@ -5,9 +5,15 @@ import { RouterLink } from '@angular/router';
 import { ControlMessaggeComponent } from './component/control-messagge/control-messagge.component';
 import { MaterialModule } from './material.module';
 import { SpinnerComponent } from './component/spinner/spinner.component';
+import { EmptyItemComponent } from './component/empty-item/empty-item.component';
 
 @NgModule({
-  declarations: [ProductItemComponent, ControlMessaggeComponent, SpinnerComponent],
+  declarations: [
+    ProductItemComponent, 
+    ControlMessaggeComponent, 
+    SpinnerComponent, 
+    EmptyItemComponent
+  ],
   imports: [
     CommonModule,
     RouterLink
@@ -15,7 +21,8 @@ import { SpinnerComponent } from './component/spinner/spinner.component';
   exports: [
     ProductItemComponent,
     SpinnerComponent,
-    MaterialModule
+    MaterialModule,
+    EmptyItemComponent
   ]
 })
 export class SharedModule { }
