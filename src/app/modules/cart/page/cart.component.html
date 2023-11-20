@@ -1,1 +1,18 @@
-<p>cart works!</p>
+<div ngClass="container row">
+    <div ngClass="col-sm-12 col-md-8">
+        <div *ngFor="let product of listCart" ngClass="row my-4">
+            <div ngClass="col-3">
+               <img ngClass="w-100" [src]="product.image" >
+            </div>
+            <div ngClass="col-9">
+               <h1 ngClass="text-bold">{{ product.title }}</h1>
+               <span ngClass="">Price : ${{ product.price }}</span>
+               <button ngClass="btn btn-danger float-right" (click)="deleteProduct(product)">Delete</button>
+            </div>
+        </div>        
+    </div>
+    <div ngClass="col-sm-12 col-md-4">
+         <h2>Total Price</h2>
+         <p>Price Total : ${{ totalPrice }}</p>
+    </div>
+</div>

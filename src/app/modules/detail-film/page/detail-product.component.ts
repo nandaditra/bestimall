@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { delay, filter } from 'rxjs';
+import { delay } from 'rxjs';
 import { Product } from 'src/app/data/schema/product';
 import { ProductService } from 'src/app/data/service/product/product.service';
 
@@ -12,6 +12,8 @@ import { ProductService } from 'src/app/data/service/product/product.service';
 export class DetailProductComponent implements OnInit{
   isLoading:boolean= false;
   status:boolean=false;
+  listProduct:any[] = [];
+  totalPrice: number = 0;
   detailProduct: Product = {
    id: 0,
    title: '',
@@ -38,26 +40,33 @@ export class DetailProductComponent implements OnInit{
   getProductById(){
      this.isLoading = true;
      const productId = Number(this.route.snapshot.paramMap.get('productId'));
-     return this.productService.getDetailProductFromApi(productId)
-       .pipe(delay(2000))
+     this.productService.getDetailProductFromApi(productId)
+       .pipe(delay(1000))
        .subscribe((product:Product)=> { 
           this.isLoading = false;
           this.detailProduct = product;
-       })
+          this.getAllProductsFromFire(this.detailProduct.id)
+      })
   }
 
-  addProduct(product: Product){
-     const productDb = this.productService.getAllProducts()
-        .subscribe(res=> {
-          res.filter((data) => parseInt(data.payload.doc.id) === product.id)
+  
+  getAllProductsFromFire(productId:number) { 
+     this.productService.getAllProducts().subscribe(res => {
+      this.listProduct = res.map((e:any) => {
+         const product = e.payload.doc.data();
+         return product
+      })
+
+      this.listProduct.map((data)=> {
+         if(data.id === productId) {
+            this.status = true;
+         }
+      })
      })
+  }
 
-     if(productDb) {
-        this.status = true;           
-        return 
-     }
-
-     return this.productService.addProduct(this.detailProduct)
+  addProduct(product: Product){     
+     return this.productService.addProduct(product)
   }
 
   deleteProduct(product: Product) {

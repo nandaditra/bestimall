@@ -1,13 +1,6 @@
-    <div class="input-group mt-5">
-      <input type="text" class="form-control" placeholder="Keyword" aria-label="Recipient's username" aria-describedby="basic-addon2">
-      <div class="input-group-append">
-        <button class="btn bg-pink text-white px-5" type="button">Search</button>
-      </div>
-    </div>
-  
     <div ngClass="row my-5">
       <app-spinner ngClass="text-center mx-auto" [loading]="isLoading" />
-      <div ngClass="col-3 my-2" *ngFor="let product of products">
+      <div ngClass="col-sm-6 col-md-3 my-2" *ngFor="let product of products">
          <app-product-item [product]="product" />
       </div>     
     </div>
