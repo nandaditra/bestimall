@@ -1,5 +1,8 @@
 <div ngClass="row">
     <div ngClass="col-sm-12 col-md-8">
+        <div *ngIf="loading" ngClass="mx-auto">
+            <app-spinner />
+        </div>
         <div *ngIf="listCart.length==0">
            <app-empty-item />
         </div>

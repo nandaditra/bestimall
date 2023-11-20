@@ -10,7 +10,8 @@ import { ProductService } from 'src/app/data/service/product/product.service';
 export class CartComponent implements OnInit {
    listCart: any[] = []; 
    paymentHandler: any = null;
-   totalPrice: Number = 0;
+   totalPrice: number = 0;
+   loading:boolean = false;
 
    constructor(private productService:ProductService){
     
@@ -58,18 +59,21 @@ export class CartComponent implements OnInit {
    }
 
    getAllProducts() {
+       this.loading = true;
        this.productService.getAllProducts().subscribe(res => {
          this.listCart = res.map((e:any) => {
              const product = e.payload.doc.data();
              product.id = e.payload.doc.id;
              this.totalPrice += product.price;
              return product
-          })
+         })
+         this.loading = false;
       })
    }
 
    deleteProduct(product:Product) {
       if (window.confirm('Are you sure you want to delete ' + product.title + ' ?')) {
+         this.totalPrice -= product.price;
          this.productService.deleteProduct(product);
       }
    }

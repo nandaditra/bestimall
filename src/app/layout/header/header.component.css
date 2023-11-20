@@ -7,6 +7,12 @@
     font-weight:500;
 }
 
+
 .pink{
     color:#FF66C4;
+}
+
+.navbar-icon {
+    padding:10px 0px;
+    width:15%;
 }
