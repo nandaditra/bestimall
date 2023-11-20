@@ -12,6 +12,7 @@ export class CartComponent implements OnInit {
    paymentHandler: any = null;
    totalPrice: number = 0;
    loading:boolean = false;
+   status:boolean= false;
 
    constructor(private productService:ProductService){
     
@@ -67,6 +68,7 @@ export class CartComponent implements OnInit {
              this.totalPrice += product.price;
              return product
          })
+         if(this.listCart.length === 0) this.status = true;
          this.loading = false;
       })
    }

@@ -3,7 +3,7 @@
         <div *ngIf="loading" ngClass="mx-auto">
             <app-spinner />
         </div>
-        <div *ngIf="listCart.length==0">
+        <div *ngIf="status">
            <app-empty-item />
         </div>
         <div *ngFor="let product of listCart" ngClass="row my-4">
