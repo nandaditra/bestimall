@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/data/service/product/product.service';
 })
 export class WomensComponent {
     listCategoryProduct: Product[] = []  
-    query: String = ""
+    loading:boolean = false;
 
     constructor(
        private productService: ProductService,
@@ -22,9 +22,11 @@ export class WomensComponent {
     }
     
     getListCategory() {
+      this.loading = true;
       return this.productService.getCategoryProductFromApi("women's clothing")
       .subscribe((product: Product[])=> {
          this.listCategoryProduct = product;
+         this.loading = false;
       })
     }
 }

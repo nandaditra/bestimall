@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/data/schema/product';
 import { ProductService } from 'src/app/data/service/product/product.service';
 
@@ -10,7 +9,7 @@ import { ProductService } from 'src/app/data/service/product/product.service';
 })
 export class ElectronicsComponent {
     listCategoryProduct: Product[] = []  
-    query: String = ""
+    loading:boolean = false;
 
     constructor(
        private productService: ProductService,
@@ -23,9 +22,11 @@ export class ElectronicsComponent {
     }
     
     getListCategory() {
+      this.loading = true;
       return this.productService.getCategoryProductFromApi("electronics")
       .subscribe((product: Product[])=> {
          this.listCategoryProduct = product;
+         this.loading = false;
       })
     }
 }
