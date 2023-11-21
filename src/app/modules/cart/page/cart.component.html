@@ -9,7 +9,7 @@
                <img ngClass="w-100" [src]="product.image" >
             </div>
             <div ngClass="col-9">
-               <h1 ngClass="text-bold">{{ product.title }}</h1>
+               <h1 ngClass="font-weight-bold">{{ product.title }}</h1>
                <span ngClass="">Price : ${{ product.price }}</span>
                <button ngClass="btn btn-danger float-right" (click)="deleteProduct(product)">Delete</button>
             </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { delay } from 'rxjs';
+import { UserService } from 'src/app/core/service/user/user.service';
 import { Product } from 'src/app/data/schema/product';
 import { ProductService } from 'src/app/data/service/product/product.service';
 
@@ -28,7 +29,9 @@ export class DetailProductComponent implements OnInit{
   };
 
   constructor(
+     private userService:UserService,
      private productService: ProductService,
+     private router:Router,
      private route: ActivatedRoute,
      ){
   }
@@ -65,7 +68,11 @@ export class DetailProductComponent implements OnInit{
      })
   }
 
-  addProduct(product: Product){     
+  addProduct(product: Product){  
+     if(this.userService.getUser() == null) {
+       this.router.navigateByUrl('auth/login');
+       return 
+     }
      return this.productService.addProduct(product)
   }
 
